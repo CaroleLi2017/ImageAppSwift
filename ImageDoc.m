@@ -44,7 +44,7 @@ AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE),
 STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
-Copyright © 2005-2012 Apple Inc. All Rights Reserved.
+Copyright ï¿½ 2005-2012 Apple Inc. All Rights Reserved.
 
 */
 
@@ -545,6 +545,8 @@ static NSString* ImageIOLocalizedString (NSString* key)
     {
         *outError = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadCorruptFileError userInfo:nil];
     }
+    
+    NSLog(@"*** %@", *outError);
     
     return status;
 }
