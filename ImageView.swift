@@ -10,13 +10,15 @@ import Foundation
 let kMargin: Float = 10;
 
 
-class ImageView: NSView {
-    var mImageDoc: ImageDoc!
+@objc class ImageView: NSView {
+    //var mImageDoc: ImageDoc?
+    
+    @IBOutlet weak var mImageDoc: ImageDoc!
     
     override init(frame frameRect: NSRect) {
         super.init(frame:frameRect);
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.draw(_:)/*self.newScreenProfile*/), name:NSNotification.Name.NSWindowDidChangeScreenProfile, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.newScreenProfile(n:)), name:NSNotification.Name.NSWindowDidChangeScreenProfile, object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -40,7 +42,11 @@ class ImageView: NSView {
         let bPath = NSBezierPath(rect: self.bounds)
         bPath.fill()
         
-        if mImageDoc.switchState()
+        guard let doc = mImageDoc else {
+            return
+        }
+        
+        if doc.switchState()
         {
             self.drawCIImage()
         }
@@ -54,8 +60,8 @@ class ImageView: NSView {
     //
     func imageTransformToFitView() -> CGAffineTransform {
 
-        let imageRect = CGRect(origin: CGPoint(x:0, y: 0), size: mImageDoc.imageSize())
-        var ctm: CGAffineTransform = mImageDoc.imageTransform()
+        let imageRect = CGRect(origin: CGPoint(x:0, y: 0), size: (mImageDoc?.imageSize())!)
+        var ctm: CGAffineTransform = mImageDoc!.imageTransform()
     
         let ctmdSize: CGSize = imageRect.applying(ctm).size;
         let destSize: NSSize = NSInsetRect(self.bounds, CGFloat(kMargin), CGFloat(kMargin)).size
@@ -70,7 +76,7 @@ class ImageView: NSView {
     func drawImage() -> Void {
         
         let viewBounds: NSRect = self.bounds
-        let imageRect: CGRect = CGRect(origin: CGPoint(x:0, y: 0), size: mImageDoc.imageSize())
+        let imageRect: CGRect = CGRect(origin: CGPoint(x:0, y: 0), size: mImageDoc!.imageSize())
         
         // get transform matrix to fit image to view
         var ctm: CGAffineTransform = self.imageTransformToFitView();
@@ -99,7 +105,7 @@ class ImageView: NSView {
         context?.interpolationQuality = q
         
         // now draw using updated transform
-        mImageDoc.drawImage(context, imageRect: imageRect)
+        mImageDoc?.drawImage(context, imageRect: imageRect)
     }
     
     
@@ -112,7 +118,7 @@ class ImageView: NSView {
         }
     
         // scale to fit in view rect
-        let image: CIImage? = mImageDoc.currentCIImage(with: self.imageTransformToFitView())
+        let image: CIImage? = mImageDoc?.currentCIImage(with: self.imageTransformToFitView())
         if (image==nil)
         {
             return;
@@ -134,7 +140,7 @@ class ImageView: NSView {
     // Force a high quality update after live resizing
     override func viewDidEndLiveResize() -> Void {
     
-        if !mImageDoc.switchState(){//([mImageDoc switchState]==NO)
+        if !(mImageDoc?.switchState())!{//([mImageDoc switchState]==NO)
             
             self.needsDisplay = true
             //[self setNeedsDisplay:YES];

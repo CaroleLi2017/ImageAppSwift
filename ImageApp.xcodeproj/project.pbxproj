@@ -16,8 +16,6 @@
 		635270B8083971010045672E /* ImageApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 635270AE083971010045672E /* ImageApp.m */; };
 		635270B9083971010045672E /* ImageDoc.h in Headers */ = {isa = PBXBuildFile; fileRef = 635270AF083971010045672E /* ImageDoc.h */; };
 		635270BA083971010045672E /* ImageDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 635270B0083971010045672E /* ImageDoc.m */; };
-		635270BB083971010045672E /* ImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 635270B1083971010045672E /* ImageView.h */; };
-		635270BC083971010045672E /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 635270B2083971010045672E /* ImageView.m */; };
 		635270BD083971010045672E /* PrintView.h in Headers */ = {isa = PBXBuildFile; fileRef = 635270B3083971010045672E /* PrintView.h */; };
 		635270BE083971010045672E /* PrintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 635270B4083971010045672E /* PrintView.m */; };
 		635270BF083971010045672E /* Profile.h in Headers */ = {isa = PBXBuildFile; fileRef = 635270B5083971010045672E /* Profile.h */; };
@@ -63,8 +61,6 @@
 		635270AE083971010045672E /* ImageApp.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ImageApp.m; sourceTree = "<group>"; };
 		635270AF083971010045672E /* ImageDoc.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ImageDoc.h; sourceTree = "<group>"; };
 		635270B0083971010045672E /* ImageDoc.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ImageDoc.m; sourceTree = "<group>"; };
-		635270B1083971010045672E /* ImageView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ImageView.h; sourceTree = "<group>"; };
-		635270B2083971010045672E /* ImageView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
 		635270B3083971010045672E /* PrintView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PrintView.h; sourceTree = "<group>"; };
 		635270B4083971010045672E /* PrintView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PrintView.m; sourceTree = "<group>"; };
 		635270B5083971010045672E /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
@@ -72,6 +68,7 @@
 		63BCE33E0843F23700160D0B /* ImageDocController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDocController.h; sourceTree = "<group>"; };
 		63BCE33F0843F23700160D0B /* ImageDocController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDocController.m; sourceTree = "<group>"; };
 		63D9DF86083EB1CF003E9D4D /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = Resources/English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		7BB26CF720574EDA0016B84C /* ImageApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageApp.entitlements; sourceTree = "<group>"; };
 		AF3BB58114450CFC00CAF434 /* ICC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICC.h; sourceTree = "<group>"; };
 		D2170CF70640A89100D81B04 /* ImageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2170DA50640AB9500D81B04 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
@@ -96,6 +93,7 @@
 		08E8075AFEB0FDBE11CA29B8 /* DiskUtility */ = {
 			isa = PBXGroup;
 			children = (
+				7BB26CF720574EDA0016B84C /* ImageApp.entitlements */,
 				08E8075FFEB0FDBE11CA29B8 /* Sources */,
 				08E8077BFEB0FDBE11CA29B8 /* Resources */,
 				08E807C2FEB0FDBE11CA29B8 /* Frameworks */,
@@ -125,8 +123,6 @@
 				63BCE33F0843F23700160D0B /* ImageDocController.m */,
 				635270AF083971010045672E /* ImageDoc.h */,
 				635270B0083971010045672E /* ImageDoc.m */,
-				635270B1083971010045672E /* ImageView.h */,
-				635270B2083971010045672E /* ImageView.m */,
 				63346A90083E50F40020B2B9 /* ImageFilter.h */,
 				63346A91083E50F40020B2B9 /* ImageFilter.m */,
 				635270B3083971010045672E /* PrintView.h */,
@@ -176,7 +172,6 @@
 				63526E01083889730045672E /* ImageInfoPanel.h in Headers */,
 				635270B7083971010045672E /* ImageApp.h in Headers */,
 				635270B9083971010045672E /* ImageDoc.h in Headers */,
-				635270BB083971010045672E /* ImageView.h in Headers */,
 				635270BD083971010045672E /* PrintView.h in Headers */,
 				635270BF083971010045672E /* Profile.h in Headers */,
 				63346A92083E50F40020B2B9 /* ImageFilter.h in Headers */,
@@ -219,6 +214,11 @@
 				TargetAttributes = {
 					D2170C530640A89100D81B04 = {
 						LastSwiftMigration = 0920;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -270,7 +270,6 @@
 				63526E02083889730045672E /* ImageInfoPanel.m in Sources */,
 				635270B8083971010045672E /* ImageApp.m in Sources */,
 				635270BA083971010045672E /* ImageDoc.m in Sources */,
-				635270BC083971010045672E /* ImageView.m in Sources */,
 				635270BE083971010045672E /* PrintView.m in Sources */,
 				635270C0083971010045672E /* Profile.m in Sources */,
 				DD5C13AA2053364400949060 /* ImageView.swift in Sources */,
@@ -323,6 +322,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
+				CODE_SIGN_ENTITLEMENTS = ImageApp.entitlements;
 				COPY_PHASE_STRIP = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -355,6 +355,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
+				CODE_SIGN_ENTITLEMENTS = ImageApp.entitlements;
 				COPY_PHASE_STRIP = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -386,6 +387,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = NO;
+				CODE_SIGN_ENTITLEMENTS = ImageApp.entitlements;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				HEADER_SEARCH_PATHS = "";
