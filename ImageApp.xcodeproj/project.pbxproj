@@ -20,8 +20,6 @@
 		635270BE083971010045672E /* PrintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 635270B4083971010045672E /* PrintView.m */; };
 		635270BF083971010045672E /* Profile.h in Headers */ = {isa = PBXBuildFile; fileRef = 635270B5083971010045672E /* Profile.h */; };
 		635270C0083971010045672E /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 635270B6083971010045672E /* Profile.m */; };
-		63BCE3400843F23700160D0B /* ImageDocController.h in Headers */ = {isa = PBXBuildFile; fileRef = 63BCE33E0843F23700160D0B /* ImageDocController.h */; };
-		63BCE3410843F23700160D0B /* ImageDocController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BCE33F0843F23700160D0B /* ImageDocController.m */; };
 		63D9DA1F083EA792003E9D4D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DAB2146FF2CE72011CA29B8 /* Cocoa.framework */; };
 		63D9DF87083EB1CF003E9D4D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 63D9DF85083EB1CF003E9D4D /* Credits.rtf */; };
 		AF3BB58214450CFC00CAF434 /* ICC.h in Headers */ = {isa = PBXBuildFile; fileRef = AF3BB58114450CFC00CAF434 /* ICC.h */; };
@@ -29,6 +27,7 @@
 		D2170C850640A89100D81B04 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 0156CBC6FFD3688311CA254A /* MainMenu.nib */; };
 		D2170C8D0640A89100D81B04 /* ImageDoc.nib in Resources */ = {isa = PBXBuildFile; fileRef = D784C248045E7B5300F66A86 /* ImageDoc.nib */; };
 		DD5C13AA2053364400949060 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5C13A92053364400949060 /* ImageView.swift */; };
+		FBC3435020584B0300AEBE7A /* ImageDocController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3434F20584B0300AEBE7A /* ImageDocController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,8 +64,6 @@
 		635270B4083971010045672E /* PrintView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = PrintView.m; sourceTree = "<group>"; };
 		635270B5083971010045672E /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		635270B6083971010045672E /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
-		63BCE33E0843F23700160D0B /* ImageDocController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDocController.h; sourceTree = "<group>"; };
-		63BCE33F0843F23700160D0B /* ImageDocController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDocController.m; sourceTree = "<group>"; };
 		63D9DF86083EB1CF003E9D4D /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = Resources/English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		7BB26CF720574EDA0016B84C /* ImageApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageApp.entitlements; sourceTree = "<group>"; };
 		AF3BB58114450CFC00CAF434 /* ICC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICC.h; sourceTree = "<group>"; };
@@ -75,6 +72,7 @@
 		D784C249045E7B5300F66A86 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = Resources/English.lproj/ImageDoc.nib; sourceTree = "<group>"; };
 		DD5C13A92053364400949060 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		DD5C13AB2053386500949060 /* ImageApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ImageApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		FBC3434F20584B0300AEBE7A /* ImageDocController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDocController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,11 +117,10 @@
 				DD5C13AB2053386500949060 /* ImageApp-Bridging-Header.h */,
 				635270AD083971010045672E /* ImageApp.h */,
 				635270AE083971010045672E /* ImageApp.m */,
-				63BCE33E0843F23700160D0B /* ImageDocController.h */,
-				63BCE33F0843F23700160D0B /* ImageDocController.m */,
 				635270AF083971010045672E /* ImageDoc.h */,
 				635270B0083971010045672E /* ImageDoc.m */,
 				63346A90083E50F40020B2B9 /* ImageFilter.h */,
+				FBC3434F20584B0300AEBE7A /* ImageDocController.swift */,
 				63346A91083E50F40020B2B9 /* ImageFilter.m */,
 				635270B3083971010045672E /* PrintView.h */,
 				635270B4083971010045672E /* PrintView.m */,
@@ -175,7 +172,6 @@
 				635270BD083971010045672E /* PrintView.h in Headers */,
 				635270BF083971010045672E /* Profile.h in Headers */,
 				63346A92083E50F40020B2B9 /* ImageFilter.h in Headers */,
-				63BCE3400843F23700160D0B /* ImageDocController.h in Headers */,
 				AF3BB58214450CFC00CAF434 /* ICC.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,12 +265,12 @@
 			files = (
 				63526E02083889730045672E /* ImageInfoPanel.m in Sources */,
 				635270B8083971010045672E /* ImageApp.m in Sources */,
+				FBC3435020584B0300AEBE7A /* ImageDocController.swift in Sources */,
 				635270BA083971010045672E /* ImageDoc.m in Sources */,
 				635270BE083971010045672E /* PrintView.m in Sources */,
 				635270C0083971010045672E /* Profile.m in Sources */,
 				DD5C13AA2053364400949060 /* ImageView.swift in Sources */,
 				63346A93083E50F40020B2B9 /* ImageFilter.m in Sources */,
-				63BCE3410843F23700160D0B /* ImageDocController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
