@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="1070" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,18 +27,18 @@
         <window title="Image Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="21" userLabel="MyWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="320" y="198" width="563" height="399"/>
+            <rect key="contentRect" x="320" y="198" width="687" height="404"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <value key="minSize" type="size" width="563" height="399"/>
-            <view key="contentView" id="2">
-                <rect key="frame" x="0.0" y="0.0" width="563" height="399"/>
+            <view key="contentView" misplaced="YES" id="2">
+                <rect key="frame" x="0.0" y="0.0" width="687" height="404"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box boxType="oldStyle" borderType="none" title="Control Box" titlePosition="noTitle" id="1462">
-                        <rect key="frame" x="-3" y="1" width="566" height="40"/>
+                        <rect key="frame" x="-3" y="1" width="690" height="40"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <view key="contentView" id="qMR-gs-2cd">
-                            <rect key="frame" x="0.0" y="0.0" width="566" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="690" height="40"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <popUpButton verticalHuggingPriority="750" imageHugsTitle="YES" id="1582">
@@ -137,7 +137,7 @@
                         <font key="titleFont" metaFont="message"/>
                     </box>
                     <customView id="1529" customClass="ImageView" customModule="ImageApp" customModuleProvider="target">
-                        <rect key="frame" x="-3" y="43" width="566" height="356"/>
+                        <rect key="frame" x="-3" y="43" width="690" height="361"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <connections>
                             <outlet property="mImageDoc" destination="-2" id="Bz8-8h-eqY"/>
@@ -145,6 +145,7 @@
                     </customView>
                 </subviews>
             </view>
+            <point key="canvasLocation" x="200.5" y="164"/>
         </window>
         <customView id="1945" userLabel="View">
             <rect key="frame" x="0.0" y="0.0" width="346" height="85"/>
