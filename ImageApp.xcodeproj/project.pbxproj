@@ -28,6 +28,7 @@
 		D2170C8D0640A89100D81B04 /* ImageDoc.nib in Resources */ = {isa = PBXBuildFile; fileRef = D784C248045E7B5300F66A86 /* ImageDoc.nib */; };
 		DD5C13AA2053364400949060 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5C13A92053364400949060 /* ImageView.swift */; };
 		FBC3435020584B0300AEBE7A /* ImageDocController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3434F20584B0300AEBE7A /* ImageDocController.swift */; };
+		FBC3435220589ACB00AEBE7A /* ImageDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC3435120589ACB00AEBE7A /* ImageDoc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +74,7 @@
 		DD5C13A92053364400949060 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		DD5C13AB2053386500949060 /* ImageApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ImageApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		FBC3434F20584B0300AEBE7A /* ImageDocController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDocController.swift; sourceTree = "<group>"; };
+		FBC3435120589ACB00AEBE7A /* ImageDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDoc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				635270AD083971010045672E /* ImageApp.h */,
 				635270AE083971010045672E /* ImageApp.m */,
 				635270AF083971010045672E /* ImageDoc.h */,
+				FBC3435120589ACB00AEBE7A /* ImageDoc.swift */,
 				635270B0083971010045672E /* ImageDoc.m */,
 				63346A90083E50F40020B2B9 /* ImageFilter.h */,
 				FBC3434F20584B0300AEBE7A /* ImageDocController.swift */,
@@ -270,6 +273,7 @@
 				635270BE083971010045672E /* PrintView.m in Sources */,
 				635270C0083971010045672E /* Profile.m in Sources */,
 				DD5C13AA2053364400949060 /* ImageView.swift in Sources */,
+				FBC3435220589ACB00AEBE7A /* ImageDoc.swift in Sources */,
 				63346A93083E50F40020B2B9 /* ImageFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
