@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ImageFilter: NSObject {
+@objc class ImageFilter: NSObject {
     
     var mImage: CGImage?
     var mCIImage: CIImage?
@@ -30,22 +30,81 @@ class ImageFilter: NSObject {
     // color management in hardware.
     //
     func setColorCubeFilterDataForGridPoints(gridPoints: size_t) -> Void {
-        var data: NSData? = nil
-        var success = true;
-        var count: Int = (gridPoints*gridPoints*gridPoints) * 4;
-        var size: Int = count * MemoryLayout<Float>.size;
-        // var floatData: Float?
-        
-        //var linRGB: Profile? = Profile.
-        
 
-        //        var data: CFData? = nil
-        //        //CFDataRef   data = NULL;
-        //
-        //        var success = true
-        //        var count: size_t = (gridPoints*gridPoints*gridPoints) * 4
-        //        var size: size_t = count * MemoryLayout<Float>.size
-        //        var floatData: Float// = (float*) malloc (size)
+        guard let linRGB: Profile? = Profile.withLinearRGB() else{
+            return
+        }
+        
+        
+        let srcDict = [ kColorSyncProfile  as! CFString : linRGB!.ref() as Any,
+            kColorSyncRenderingIntent as! CFString: kColorSyncRenderingIntentUseProfileHeader as! CFString,
+            kColorSyncTransformTag as! CFString : kColorSyncTransformDeviceToPCS as! CFString] //as CFDictionary
+        
+        let midDict = [ kColorSyncProfile as! CFString : mProfile!.ref() as Any,
+            kColorSyncRenderingIntent as! CFString: kColorSyncRenderingIntentUseProfileHeader as! CFString,
+            kColorSyncTransformTag as! CFString : kColorSyncTransformPCSToPCS as! CFString ] //as CFDictionary
+        
+        let dstDict = [ kColorSyncProfile as! CFString : linRGB!.ref() as Any,
+            kColorSyncRenderingIntent as! CFString : kColorSyncRenderingIntentUseProfileHeader as! CFString,
+            kColorSyncTransformTag as! CFString : kColorSyncTransformPCSToDevice as! CFString] //as CFDictionary
+ 
+        let arrayVals: Array! = [srcDict, midDict, dstDict, nil]
+        
+        let profileSequence = arrayVals as CFArray!
+        
+        guard let transform = ColorSyncTransformCreate(profileSequence, nil) else { return }
+        
+        let options = [kColorSyncConversionGridPoints as! CFString: gridPoints] as CFDictionary
+        
+        let array = ColorSyncTransformCopyProperty(transform as! ColorSyncTransform, kColorSyncTransformSimplifiedConversionData as CFTypeRef, options) as! CFArray
+        
+        let dict: CFDictionary! =  CFArrayGetValueAtIndex(array, 0) as! CFDictionary
+        
+        guard let colorSyncTexture = (dict as NSDictionary) [kColorSyncConversion3DLut] as? NSData else {return}
+
+        //////// use colorSyncTexture for floatData to build color cube
+        let iCount  = (gridPoints*gridPoints*gridPoints) * 4;
+        // buffer to store resulting cube points
+        var floatData = [Float](repeating: 0, count: iCount)
+        
+        
+        // buffer copy of the colorSyncTexture
+        var clutBase = [Float](repeating: 0, count: iCount)
+
+        colorSyncTexture.getBytes(&clutBase, length: iCount * MemoryLayout<Float>.size )
+        for bb in 0...gridPoints{
+            for gg in 0...gridPoints{
+                for rr in 0...gridPoints{
+                    let dataOffset = (bb * gridPoints * gridPoints + gg * gridPoints + rr) * 4
+                    let clutOffset = (rr * gridPoints * gridPoints + gg * gridPoints + bb) * 3
+                    
+                    //let clutPtrVal = clutBase[clutOffset]
+
+                    floatData[dataOffset + 0] = clutBase[ clutOffset + 0] / (Float)(65535.0 )
+                    
+                    if (floatData[dataOffset + 0] > (Float)(1.0)) { floatData[dataOffset + 0] = (Float)(1.0) }
+                    if (floatData[dataOffset + 0] < (Float)(1.0)) { floatData[dataOffset + 0] = (Float)(0.0) }
+                    
+                    floatData[dataOffset + 1]  = clutBase[clutOffset + 1]/(Float)(65535.0)
+                    
+                    if (floatData[dataOffset + 1] > (Float)(1.0)) { floatData[dataOffset + 1] = (Float)(1.0) }
+                    if (floatData[dataOffset + 1] < (Float)(1.0)) { floatData[dataOffset + 1] = (Float)(1.0) }
+                    
+                    floatData[dataOffset + 2]  = clutBase[clutOffset + 2]/(Float)(65535.0)
+                        
+                    if (floatData[dataOffset + 2] > (Float)(1.0)) { floatData[dataOffset + 2] = (Float)(1.0) }
+                    if (floatData[dataOffset + 2] < (Float)(1.0)) { floatData[dataOffset + 2] = (Float)(1.0) }
+                    
+                    floatData[dataOffset + 0] = (Float)(1.0)
+                }
+            }
+        }
+        
+        
+        let data = floatData.withUnsafeBufferPointer { Data(buffer: $0) } as NSData
+        
+        mCIColorCube?.setValue(data, forKey: "inputCubeData")
+        
     }
     
     
